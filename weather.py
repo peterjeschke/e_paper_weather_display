@@ -9,8 +9,8 @@ fontdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'font')
 
 # Search lib folder for display driver modules
 sys.path.append('lib')
-from waveshare_epd import epd7in5_V2
-epd = epd7in5_V2.EPD()
+from waveshare_epd import epd2in7_V2
+epd = epd2in7_V2.EPD()
 
 from datetime import datetime
 import time
@@ -75,7 +75,7 @@ API_KEY = '******API KEY*******'
 LOCATION = '*******'
 LATITUDE = '*******'
 LONGITUDE = '*******'
-UNITS = 'imperial'
+UNITS = 'metric'
 CSV_OPTION = True # if csv_option == True, a weather data will be appended to 'record.csv'
 
 BASE_URL = 'http://api.openweathermap.org/data/2.5/onecall?' 
@@ -149,14 +149,14 @@ while True:
             
             # Set strings to be printed to screen
             string_location = LOCATION
-            string_temp_current = format(temp_current, '.0f') + u'\N{DEGREE SIGN}F'
-            string_feels_like = 'Feels like: ' + format(feels_like, '.0f') +  u'\N{DEGREE SIGN}F'
-            string_humidity = 'Humidity: ' + str(humidity) + '%'
-            string_wind_speed = 'Wind Speed ' + format(wind_speed, '.1f') + ' MPH'
-            string_report = 'Now: ' + report.title()
-            string_temp_max = 'High: ' + format(temp_max, '>.0f') + u'\N{DEGREE SIGN}F'
-            string_temp_min = 'Low:  ' + format(temp_min, '>.0f') + u'\N{DEGREE SIGN}F'
-            string_precip_percent = 'Precip: ' + str(format(daily_precip_percent, '.0f'))  + '%'
+            string_temp_current = format(temp_current, '.0f') + u'\N{DEGREE SIGN}C'
+            string_feels_like = 'Gefühlt: ' + format(feels_like, '.0f') +  u'\N{DEGREE SIGN}C'
+            string_humidity = 'Feuchtigkeit: ' + str(humidity) + '%'
+            string_wind_speed = 'Windgeschwindigkeit ' + format(wind_speed, '.1f') + ' km/h'
+            string_report = 'Jetzt: ' + report.title()
+            string_temp_max = 'Hoch: ' + format(temp_max, '>.0f') + u'\N{DEGREE SIGN}C'
+            string_temp_min = 'Tief:  ' + format(temp_min, '>.0f') + u'\N{DEGREE SIGN}C'
+            string_precip_percent = 'Regen: ' + str(format(daily_precip_percent, '.0f'))  + '%'
             
             # Set error code to false
             error = False
